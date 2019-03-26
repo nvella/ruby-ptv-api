@@ -18,9 +18,9 @@ module RubyPtv
     #   route_id [Integer]
     #   route_type [Integer]
     #
-    # No optional params available
-    def stops_for_route(route_id, route_type)
-      data = request("stops/route/#{route_id}/route_type/#{route_type}")
+    # Optional params must have key matching official PTV param name
+    def stops_for_route(route_id, route_type, options = {})
+      data = request("stops/route/#{route_id}/route_type/#{route_type}", options)
       data["stops"]
     end
 
